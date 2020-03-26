@@ -1,7 +1,7 @@
 from flask import render_template, request, redirect, send_from_directory, send_file
 import image
 import forms
-import boto3
+#import boto3
 
 from flask import Flask
 
