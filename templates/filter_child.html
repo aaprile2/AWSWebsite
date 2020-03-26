@@ -1,0 +1,9 @@
+{% extends "filter.html" %}
+
+{% block childblock %}
+<img src="{{ url_for('static', filename=outputpath, target='_blank') }}" height="360" width="240" />
+<form target="_blank" action="/download/{{ outputpath }}" method="get">
+        <input type="submit" value="Download Image"/>
+</form>
+
+{% endblock %}

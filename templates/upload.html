@@ -1,0 +1,17 @@
+{% extends "template.html" %}
+
+{% block content %}
+
+<!--<form action="/" method="post" novalidate>-->
+<!--        <p>-->
+<!--            <b>{{ form.photo }}</b></p>>-->
+<!--</form>-->
+
+
+<form method="post" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    {{ form.photo }}
+    <input type="submit">
+</form>
+
+{% endblock %}

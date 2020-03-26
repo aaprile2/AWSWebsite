@@ -1,0 +1,17 @@
+{% extends "template.html" %}
+
+{% block content %}
+<img src="{{ url_for('static', filename=photopath) }}" height="360" width="240" />
+
+<form action="/filter/{{ photopath }}/process" method="post" novalidate>
+
+        <p>
+            {{ form.fil(style="list-style:none") }}
+        </p>
+
+        <p>{{ form.submit() }}</p>
+</form>
+
+{% endblock %}
+
+
