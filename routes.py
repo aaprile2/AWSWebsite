@@ -55,8 +55,8 @@ def download(outputpath):
         s3 = boto3.resource('s3')
         fileoutputname = "downloads/" + outputpath
         #s3.Bucket(app.config['bucket']).download_file(outputpath, fileoutputname)
-        #return send_from_directory('static/', outputpath)
-        return send_file(fileoutputname, as_attachment=True)
+        return send_from_directory('static/', outputpath)
+        #return send_file(fileoutputname, as_attachment=True)
 
 if __name__ == '__main__':
     #app.run(host="0.0.0.0", port="80")
