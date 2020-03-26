@@ -1,7 +1,6 @@
 from flask import render_template, request, redirect, send_from_directory
 import image
 import forms
-#from werkzeug import secure_filename
 
 from flask import Flask
 
@@ -9,7 +8,9 @@ app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'puppies'
 
-
+@app.route('/', methods=['GET'])
+def reroute():
+    return redirect('/home')
 @app.route('/home', methods=['GET', 'POST'])
 def upload():
     form = forms.photoUpload()
@@ -17,7 +18,6 @@ def upload():
 
         if form.validate_on_submit():
 
-            #filename = secure_filename(form.photo.data.filename)
             form.photo.data.save('static/' + form.photo.data.filename)
             photo = form.photo.data
             return redirect("/filter/" + form.photo.data.filename)
@@ -51,4 +51,6 @@ def download(outputpath):
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port="5000")
+    #app.run(host="0.0.0.0", port="5000", debug=True)
+    #app.run(host="0.0.0.0", debug=True)
+    app.run(debug=True)
