@@ -1,9 +1,7 @@
 from flask import render_template, request, redirect, send_from_directory
-import test
 import image
 import forms
-from PIL import Image
-from werkzeug import secure_filename
+#from werkzeug import secure_filename
 
 from flask import Flask
 
@@ -18,10 +16,11 @@ def upload():
     if request.method == 'POST':
 
         if form.validate_on_submit():
-            filename = secure_filename(form.photo.data.filename)
-            form.photo.data.save('static/' + filename)
+
+            #filename = secure_filename(form.photo.data.filename)
+            form.photo.data.save('static/' + form.photo.data.filename)
             photo = form.photo.data
-            return redirect("/filter/" + filename)
+            return redirect("/filter/" + form.photo.data.filename)
     return render_template('upload.html', form=form)
 
 
