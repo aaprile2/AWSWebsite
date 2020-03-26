@@ -52,7 +52,7 @@ def filter(photopath):
 @app.route("/download/<outputpath>", methods=['GET'])
 def download(outputpath):
     if request.method == 'GET':
-        s3 = boto3.resource('s3')
+        #s3 = boto3.resource('s3')
         fileoutputname = "downloads/" + outputpath
         #s3.Bucket(app.config['bucket']).download_file(outputpath, fileoutputname)
         return send_from_directory('static/', outputpath)
