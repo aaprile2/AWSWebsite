@@ -21,8 +21,8 @@ def upload():
         if form.validate_on_submit():
 
             form.photo.data.save('static/' + form.photo.data.filename)
-            s3_client = boto3.client('s3')
-            valid = s3_client.upload_file('static/' + form.photo.data.filename, app.config['bucket'], form.photo.data.filename)
+            #s3_client = boto3.client('s3')
+            #valid = s3_client.upload_file('static/' + form.photo.data.filename, app.config['bucket'], form.photo.data.filename)
             photo = form.photo.data
             return redirect("/filter/" + form.photo.data.filename)
     return render_template('upload.html', form=form)
@@ -41,8 +41,8 @@ def filter(photopath):
         if form.submit.data:
             fil = form.fil.data
             outputpath = image.filter_image(fil, photopath)
-            s3_client = boto3.client('s3')
-            valid = s3_client.upload_file('static/' + outputpath, app.config['bucket'], outputpath)
+            #s3_client = boto3.client('s3')
+            #valid = s3_client.upload_file('static/' + outputpath, app.config['bucket'], outputpath)
             return render_template('filter_child.html', form=form, photopath=photopath,
                                    outputpath=outputpath)
 
@@ -54,11 +54,11 @@ def download(outputpath):
     if request.method == 'GET':
         s3 = boto3.resource('s3')
         fileoutputname = "downloads/" + outputpath
-        s3.Bucket(app.config['bucket']).download_file(outputpath, fileoutputname)
+        #s3.Bucket(app.config['bucket']).download_file(outputpath, fileoutputname)
         #return send_from_directory('static/', outputpath)
         return send_file(fileoutputname, as_attachment=True)
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port="80")
+    #app.run(host="0.0.0.0", port="80")
     #app.run(host="0.0.0.0", debug=True)
-    #app.run(debug=True)
+    app.run(debug=True)
