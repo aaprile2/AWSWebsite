@@ -1,5 +1,4 @@
-from PIL import Image, ImageOps, ImageFilter
-import sys
+from PIL import ImageOps, ImageFilter
 
 # Gray
 def gray(image):

@@ -1,26 +1,26 @@
-import test
+import filters
 from PIL import Image
+
 
 def filter_image(fil, photopath):
     photo = Image.open('static/' + photopath)
     if fil == 'Gray':
-        img = test.gray(photo)
+        img = filters.gray(photo)
     elif fil == 'Sepia':
-        img = test.sepia(photo)
+        img = filters.sepia(photo)
     elif fil == 'Poster':
-        img = test.poster(photo)
+        img = filters.poster(photo)
     elif fil == 'Blur':
-        img = test.blur(photo)
+        img = filters.blur(photo)
     elif fil == 'Edge':
-        img = test.edge(photo)
+        img = filters.edge(photo)
     elif fil == 'Solar':
-        img = test.solar(photo)
+        img = filters.solar(photo)
     # local save
     outputpath = mutate_filename(photopath, fil)
     img.save('static/' + outputpath)
-    # s3 save
-    # TODO
     return outputpath
+
 
 def mutate_filename(photopath, fil):
     photopath_split = photopath.split('.')
