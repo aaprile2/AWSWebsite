@@ -1,7 +1,18 @@
 {% extends "template.html" %}
 
 {% block content %}
-<img src="{{ url_for('static', filename=photopath) }}" height="360" width="240" />
+<style type="text/css">
+img.resize{
+max-width=50%;
+max-height=50%;
+}
+</style>
+<h2>Filter Preview</h2>
+Your image has been successfully uploaded!
+Select a filter and click 'Apply Filter!' to preview and download to S3.
+<br>
+<br>
+<img class="resize" src="{{ url_for('static', filename=photopath) }}" />
 
 <form action="/filter/{{ photopath }}/process" method="post" novalidate>
 

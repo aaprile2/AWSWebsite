@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+<style type="text/css">
+hr.color{
+border-color:black;
+}
+</style>
 <head>
     <meta charset="UTF-8">
-    <title>Image Filter Application</title>
+    <title>Aprile - Project 2: Image Filter Application</title>
 </head>
-<body>
-    <div id="navigation">
-        <a href="/">Image Upload</a>&emsp;
-    </div>
+<body style="background-color:#d4f1fc">
     <div id="content">
+        <div id="navigation">
+            <a href="/"><button type="button">Home</button></a>
+        <h1 style="font-family:cursive;font-variant:small-caps">Image Filter Application</h1>
+            <hr class="color">
+    </div>
         {% block content %}{% endblock %}
     </div>
     <div id="child">

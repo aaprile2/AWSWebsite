@@ -6,11 +6,12 @@
 <!--        <p>-->
 <!--            <b>{{ form.photo }}</b></p>>-->
 <!--</form>-->
-
-
+<h3>To begin, upload an image and submit:</h3>
 <form method="post" enctype="multipart/form-data">
     {{ form.hidden_tag() }}
     {{ form.photo }}
+    <br>
+    <br>
     <input type="submit">
 </form>
 

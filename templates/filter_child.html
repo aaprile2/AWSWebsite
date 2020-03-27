@@ -1,9 +1,29 @@
 {% extends "filter.html" %}
 
 {% block childblock %}
-<img src="{{ url_for('static', filename=outputpath, target='_blank') }}" height="360" width="240" />
+<style type="text/css">
+img.resize{
+max-width=50%;
+max-height=50%;
+border=1;
+}
+</style>
+<hr style="border-top: dotted 0.5px">
+<h3>{{ form.fil.data }} filter preview. Image uploaded to S3 instance.</h3>
+<img class="resize" src="{{ url_for('static', filename=outputpath, target='_blank') }}"  />
+<br>
+<br>
+Select 'Apply Filter!' to preview a new filter.
+<br>
+Select 'Download Image' to open image in a new tab and download.
+<br>
+Select 'Upload New Image' to upload a new image.
+<br>
+<br>
+<br>
 <form target="_blank" action="/download/{{ outputpath }}" method="get">
         <input type="submit" value="Download Image"/>
+        <a href="/"><button type="button">Upload New Image</button></a>
 </form>
 
 {% endblock %}

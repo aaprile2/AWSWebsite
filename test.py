@@ -1,12 +1,4 @@
-'''
-1. Design a web portal to upload the image files.
-2.Implement at least three out the following 6 image filtering functions: Gray, Sepia, Poster, Blur, Edge, and Solar.
-3.Store the images in AWS S3 storage
-4.Display the processed image
-5.A web portal to download the processed image
-'''
-
-from PIL import Image, ImageFilter
+from PIL import Image, ImageOps, ImageFilter
 import sys
 
 # Gray
@@ -39,7 +31,7 @@ def sepia(image):
 
 # Poster
 def poster(image):
-    return ""
+    return ImageOps.posterize(image, 3)
 
 # Blur
 def blur(image):
@@ -51,15 +43,4 @@ def edge(image):
 
 # Solar
 def solar(image):
-    return ""
-
-# Image reading and manipulation
-# try:
-#     img = Image.open("C:\\Users\\Allison Aprile\\Pictures\\Doggies\\Owen\\Owie.jpg")
-#
-# except IOError:
-#     print("Unable to load image")
-#     sys.exit(1)
-#
-# i = sepia(img)
-# i.show()
+    return ImageOps.solarize(image, threshold=80)
