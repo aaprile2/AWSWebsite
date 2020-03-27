@@ -3,9 +3,10 @@
 {% block childblock %}
 <style type="text/css">
 img.resize{
-max-width=50%;
-max-height=50%;
-border=1;
+  height: auto;
+  width: auto;
+  max-width: 300px;
+  max-height: 300px;
 }
 </style>
 <hr style="border-top: dotted 0.5px">
@@ -21,7 +22,7 @@ Select 'Upload New Image' to upload a new image.
 <br>
 <br>
 <br>
-<form target="_blank" action="/download/{{ outputpath }}" method="get">
+<form action="/download/{{ outputpath }}" method="get">
         <input type="submit" value="Download Image"/>
         <a href="/"><button type="button">Upload New Image</button></a>
 </form>
